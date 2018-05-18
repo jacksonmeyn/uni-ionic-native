@@ -2,8 +2,10 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+
 import { BatteryStatus } from '@ionic-native/battery-status';
 import { NativeAudio } from '@ionic-native/native-audio';
+import { DeviceOrientation, DeviceOrientationCompassHeading} from '@ionic-native/device-orientation';
 
 import { AboutPage } from '../pages/about/about';
 import { CompassPage } from '../pages/compass/compass';
@@ -38,6 +40,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SplashScreen,
     BatteryStatus,
     NativeAudio,
+    DeviceOrientation,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
