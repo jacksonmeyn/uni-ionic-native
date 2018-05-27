@@ -32,8 +32,8 @@ export class CompassPage {
 
   //Thanks to https://stackoverflow.com/a/25867068 for this function
   degToCompass(num : number) : string {
-    var val: number = Math.floor((num / 22.5) + 0.5);
-    var arr: string[] = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
+    let val: number = Math.floor((num / 22.5) + 0.5);
+    let arr: string[] = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
     return arr[(val % 16)];
   }
 

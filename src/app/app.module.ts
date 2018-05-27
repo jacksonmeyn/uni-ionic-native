@@ -5,7 +5,7 @@ import { MyApp } from './app.component';
 
 import { BatteryStatus } from '@ionic-native/battery-status';
 import { NativeAudio } from '@ionic-native/native-audio';
-import { DeviceOrientation, DeviceOrientationCompassHeading} from '@ionic-native/device-orientation';
+import { DeviceOrientation } from '@ionic-native/device-orientation';
 
 import { AboutPage } from '../pages/about/about';
 import { CompassPage } from '../pages/compass/compass';

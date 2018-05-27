@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { BatteryStatus } from '@ionic-native/battery-status';
 import { NativeAudio } from '@ionic-native/native-audio';
@@ -17,7 +17,8 @@ export class HomePage {
 
   constructor(public navCtrl: NavController,
               public batStatus: BatteryStatus,
-              public audio: NativeAudio) {
+              public audio: NativeAudio,
+              public changeDetector: ChangeDetectorRef) {
               
     this.audio.preloadSimple('battery_critical', 'assets/sounds/battery_critical.mp3')
       .then(() => {console.log("loaded");},
@@ -48,6 +49,7 @@ export class HomePage {
         }
       }
       this.charge = status.level;
+      this.changeDetector.detectChanges();
       console.log("Charge:" + this.charge);
     
       
@@ -75,11 +77,44 @@ export class HomePage {
                                                (err) => {console.log("play err: "+ err);}
         );
       }, 1000);
-    }
-  
-  )
+    })
 
   }
+
+/*   getBattery() {
+    this.updateBattery()
+      .then((charge) => {
+        this.charge = charge;
+        console.log("Chrge " + this.charge);
+      })
+  }
+
+  updateBattery() : Promise<any> {
+    return new Promise(resolve => {
+      this.chargeLevelSubscription = this.batStatus.onChange().subscribe((status) => {
+        if (status.isPlugged != this.isPluggedIn) {
+          //Battery has changed from charging to not charging or vice versa
+          this.isPluggedIn = status.isPlugged;
+          switch (this.isPluggedIn) {
+            case true:
+              this.audio.play('battery_charging');
+              break;
+            case false:
+              this.audio.play('battery_not_charging');
+              break;
+            default:
+              break;
+          }
+        }
+        console.log("Charge changed");
+      })
+    })
+  }
+
+  ionViewDidLoad () {
+    console.log("Looded");
+    this.getBattery();
+  } */
   
 
 }
