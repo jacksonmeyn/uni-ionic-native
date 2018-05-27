@@ -80,41 +80,6 @@ export class HomePage {
     })
 
   }
-
-/*   getBattery() {
-    this.updateBattery()
-      .then((charge) => {
-        this.charge = charge;
-        console.log("Chrge " + this.charge);
-      })
-  }
-
-  updateBattery() : Promise<any> {
-    return new Promise(resolve => {
-      this.chargeLevelSubscription = this.batStatus.onChange().subscribe((status) => {
-        if (status.isPlugged != this.isPluggedIn) {
-          //Battery has changed from charging to not charging or vice versa
-          this.isPluggedIn = status.isPlugged;
-          switch (this.isPluggedIn) {
-            case true:
-              this.audio.play('battery_charging');
-              break;
-            case false:
-              this.audio.play('battery_not_charging');
-              break;
-            default:
-              break;
-          }
-        }
-        console.log("Charge changed");
-      })
-    })
-  }
-
-  ionViewDidLoad () {
-    console.log("Looded");
-    this.getBattery();
-  } */
   
 
 }
